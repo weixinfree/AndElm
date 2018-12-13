@@ -23,11 +23,11 @@ public class CompoundUpdate<M> implements Elm.Update<M> {
     }
 
     @Override
-    public M update(String action,Object param, M old) {
+    public M update(String action, Object payload, M old) {
         final Elm.Update<M> update = get(action);
         if (update == null) {
             throw new ElmException("unsupported action: " + action);
         }
-        return update.update(action, param, old);
+        return update.update(action, payload, old);
     }
 }

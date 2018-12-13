@@ -100,11 +100,6 @@ public interface Binder<M> {
         });
     }
 
-//    default <Attr, View> void paddingTop(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);
-//    default <Attr, View> void paddingBottom(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);
-//    default <Attr, View> void paddingH(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);
-//    default <Attr, View> void paddingV(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);
-//
 //    default <Attr, View> void marginLeft(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);
 //    default <Attr, View> void marginTop(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);
 //    default <Attr, View> void marginRight(View view, String attrName, Function<M, Attr> attrGetter, BiConsumer<View, Attr> attrSetter);

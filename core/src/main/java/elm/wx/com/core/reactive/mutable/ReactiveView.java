@@ -28,7 +28,7 @@ public abstract class ReactiveView<M> implements Elm.View<M> {
             hasCreateView = true;
         }
 
-        refresh(context, model, elm);
+        refresh(model);
     }
 
     protected abstract void onCreateView(Context context, Elm<M> elm);
@@ -81,7 +81,7 @@ public abstract class ReactiveView<M> implements Elm.View<M> {
     private final State lastState = new State();
 
     @SuppressWarnings("WeakerAccess")
-    public void refresh(Context context, M model, Elm<M> elm) {
+    public void refresh(M model) {
         for (Bind<M> bind : bindList) {
             final Object realView = bind.realView;
             final String attrName = bind.attrName;

@@ -6,7 +6,7 @@ import android.view.Choreographer;
  *
  * Created by wangwei on 2018/12/07.
  */
-public class ChoreographerTick implements Tick {
+public class ChoreographerTick implements Elm.Tick {
 
     private static final ChoreographerTick outInstance = new ChoreographerTick();
 

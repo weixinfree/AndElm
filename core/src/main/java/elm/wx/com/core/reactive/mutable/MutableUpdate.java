@@ -8,8 +8,8 @@ import elm.wx.com.core.Elm;
 public interface MutableUpdate<M> extends Elm.Update<M>  {
 
     @Override
-    default M update(String action, Object param, M old) {
-        mutableUpdate(action, param, old);
+    default M update(String action, Object payload, M old) {
+        mutableUpdate(action, payload, old);
         return old;
     }
 
