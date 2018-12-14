@@ -12,6 +12,7 @@ import android.widget.TextView;
 import elm.wx.com.andelm.util.SimpleTextWatcher;
 import elm.wx.com.core.Elm;
 import elm.wx.com.core.Elms;
+import elm.wx.com.core.reactive.mutable.Bind;
 import elm.wx.com.core.reactive.mutable.ReactiveViewFactory;
 
 /**
@@ -41,7 +42,9 @@ public class ReverseText implements Demo {
             input.addTextChangedListener(getWatcher(elm));
 
             final TextView reverse = root.findViewById(R.id.text);
-            bind.text(reverse, ReverseText::reverseStr);
+
+            final Bind<CharSequence> $ = new Bind<>(bind);
+            $.text(reverse, ReverseText::reverseStr);
         };
     }
 

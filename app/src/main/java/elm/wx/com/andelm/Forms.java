@@ -12,6 +12,7 @@ import elm.wx.com.andelm.util.SimpleTextWatcher;
 import elm.wx.com.core.Elm;
 import elm.wx.com.core.Elms;
 import elm.wx.com.core.CompoundUpdate;
+import elm.wx.com.core.reactive.mutable.Bind;
 import elm.wx.com.core.reactive.mutable.MutableUpdate;
 import elm.wx.com.core.reactive.mutable.ReactiveViewFactory;
 
@@ -79,9 +80,11 @@ public class Forms implements Demo {
                 }
             });
 
+            final Bind<Form> $ = new Bind<>(bind);
+
             TextView status = root.findViewById(R.id.text);
-            bind.text(status, form -> form.status);
-            bind.textColor(status, form -> OK.equalsIgnoreCase(form.status) ? Color.GREEN : Color.RED);
+            $.text(status, form -> form.status);
+            $.textColor(status, form -> OK.equalsIgnoreCase(form.status) ? Color.GREEN : Color.RED);
         };
     }
 }

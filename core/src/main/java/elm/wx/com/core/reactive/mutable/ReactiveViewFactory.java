@@ -8,5 +8,5 @@ import elm.wx.com.core.Elm;
  * Created by wangwei on 2018/12/13.
  */
 public interface ReactiveViewFactory<M> {
-    void create(Context context, Elm<M> elm, Binder<M> bind);
+    void create(Context context, Elm<M> elm, IBinder<M> bind);
 }
