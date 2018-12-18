@@ -2,12 +2,12 @@
 
 [Elm Architecture](https://guide.elm-lang.org/architecture/) 在Android上的实现.
 
-Elm 自带了一个Virtual Dom实现，所以View是声明式的。Virtual DOm在Android/Java技术栈中并没有非常好的对应实现。
-但是同时，View 知识Elm Arch的一个组成部分，没有Virtual Dom实现并不会影响Elm Arch的核心思路。
+Elm 自带了一个Virtual Dom实现，所以View是声明式的。Virtual Dom在Android/Java技术栈中并没有非常好的对应实现。
+但是View 只是Elm Arch的一个组成部分，没有Virtual Dom实现并不会影响Elm Arch的核心思路。
 
 本项目使用EAndroid/Java 技术栈实现了Elm架构。
 1. Elm Arch
-2. 基于xml + 绑定的声明式UI
+2. 基于xml布局 + 代码绑定实现声明式UI
 
 
 # Demo
@@ -169,12 +169,12 @@ public class Forms implements Demo {
 Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
 ```grovvy
- allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 
 Step 2. Add the dependency
