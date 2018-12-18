@@ -164,3 +164,22 @@ public class Forms implements Demo {
 
 ```
 
+### 获取
+
+Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+```grovvy
+ allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+Step 2. Add the dependency
+```grovvy
+dependencies {
+    implementation 'com.github.weixinfree:AndElm:Tag'
+}
+```
