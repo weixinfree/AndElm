@@ -23,23 +23,36 @@ public class Forms implements Demo {
 
     static final String OK = "OK";
 
+    ///////////////////////////////////////////////////////////////////////////
+    // main
+    ///////////////////////////////////////////////////////////////////////////
+
     @Override
-    public View construct(Context context) {
+    public View main(Context context) {
         final View root = View.inflate(context, R.layout.elm_forms, null);
         Elms.construct(context, initUpdate(), new Form(), initView(root));
         return root;
     }
 
-    private static final String KEY_NAME = "NAME";
-    private static final String KEY_PASSWORD = "PASSWORD";
-    private static final String KEY_AGAIN = "AGAIN";
+    ///////////////////////////////////////////////////////////////////////////
+    // model
+    ///////////////////////////////////////////////////////////////////////////
 
     static class Form {
+
         String name = "";
         String password = "";
         String passwordAgain = "";
         String status = OK;
     }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // update
+    ///////////////////////////////////////////////////////////////////////////
+
+    private static final String KEY_NAME = "NAME";
+    private static final String KEY_PASSWORD = "PASSWORD";
+    private static final String KEY_AGAIN = "AGAIN";
 
     @NonNull
     private Elm.Update<Form> initUpdate() {
@@ -52,6 +65,10 @@ public class Forms implements Demo {
         });
         return update;
     }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // view
+    ///////////////////////////////////////////////////////////////////////////
 
     @NonNull
     private ReactiveViewFactory<Form> initView(View root) {

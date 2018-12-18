@@ -23,7 +23,7 @@ public class DemoActivity extends AppCompatActivity {
             finish();
             return;
         }
-        setContentView(demoImpl.construct(this));
+        setContentView(demoImpl.main(this));
     }
 
     private Demo getDemoImpl() {

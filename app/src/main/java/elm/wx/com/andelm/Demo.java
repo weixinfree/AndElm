@@ -8,5 +8,5 @@ import android.view.View;
  */
 public interface Demo {
 
-    View construct(Context context);
+    View main(Context context);
 }

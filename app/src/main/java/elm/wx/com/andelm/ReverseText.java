@@ -22,17 +22,29 @@ public class ReverseText implements Demo {
 
     private static final String REVERSE = "reverse";
 
-    public View construct(Context context) {
+    ///////////////////////////////////////////////////////////////////////////
+    // main
+    ///////////////////////////////////////////////////////////////////////////
+
+    public View main(Context context) {
         final View root = View.inflate(context, R.layout.elm_reverse_text, null);
         Elms.construct(context, initUpdate(), "input something", initView(root));
 
         return root;
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    // update
+    ///////////////////////////////////////////////////////////////////////////
+
     @NonNull
     private Elm.Update<CharSequence> initUpdate() {
         return (action, param, old) -> ((CharSequence) param);
     }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // view
+    ///////////////////////////////////////////////////////////////////////////
 
     @NonNull
     private ReactiveViewFactory<CharSequence> initView(View root) {

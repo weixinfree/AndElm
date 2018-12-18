@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
+import elm.wx.com.core.Elm;
 import elm.wx.com.core.Elms;
 import elm.wx.com.core.CompoundUpdate;
 import elm.wx.com.core.reactive.mutable.Bind;
@@ -19,19 +20,31 @@ public class Number implements Demo {
     private static final String INC = "inc";
     private static final String DEC = "dec";
 
-    public View construct(Context context) {
+    ///////////////////////////////////////////////////////////////////////////
+    // main
+    ///////////////////////////////////////////////////////////////////////////
+
+    public View main(Context context) {
         final View root = View.inflate(context, R.layout.elm_number, null);
         Elms.construct(context, initUpdate(), 0, initView(root));
         return root;
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    // update
+    ///////////////////////////////////////////////////////////////////////////
+
     @NonNull
-    private CompoundUpdate<Integer> initUpdate() {
+    private Elm.Update<Integer> initUpdate() {
         final CompoundUpdate<Integer> update = new CompoundUpdate<>();
         update.add(INC, (action, param, old) -> old + 1);
         update.add(DEC, (action, param, old) -> old - 1);
         return update;
     }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // view
+    ///////////////////////////////////////////////////////////////////////////
 
     @NonNull
     private ReactiveViewFactory<Integer> initView(View root) {
