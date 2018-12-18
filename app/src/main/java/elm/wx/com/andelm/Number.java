@@ -60,6 +60,8 @@ public class Number implements Demo {
 
             final TextView number = root.findViewById(R.id.number);
             $.text(number, this::strOfInt);
+
+            return root;
         };
     }
 

@@ -12,9 +12,17 @@ public class CompoundUpdate<M> implements Elm.Update<M> {
 
     private final Map<String, Elm.Update<M>> actionUpdateMap = new ArrayMap<>();
 
+    public static <M> CompoundUpdate<M> create() {
+        return new CompoundUpdate<>();
+    }
+
     public synchronized CompoundUpdate<M> add(String action, Elm.Update<M> update) {
         actionUpdateMap.put(action, update);
         return this;
+    }
+
+    public CompoundUpdate<M> addMutable(String action, MutableUpdate<M> update) {
+        return this.add(action, update);
     }
 
     @SuppressWarnings("WeakerAccess")

@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import java.util.Arrays;
 import java.util.List;
 
+import elm.wx.com.andelm.todo.TodoMain;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         final List<Class<? extends Demo>> demos = Arrays.asList(
                 Number.class,
                 ReverseText.class,
-                Forms.class
+                Forms.class,
+                TodoMain.class
         );
 
         for (Class<? extends Demo> demo : demos) {

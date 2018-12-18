@@ -5,6 +5,8 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +17,7 @@ import xin.banana.base.Function;
  * Created by wangwei on 2018/12/14.
  */
 @SuppressWarnings("unused")
-public class Bind<M> implements IBinder<M> {
+public class Bind<M> implements elm.wx.com.core.reactive.mutable.IBinder<M> {
 
     private final IBinder<M> IBinder;
 
@@ -33,7 +35,12 @@ public class Bind<M> implements IBinder<M> {
     ///////////////////////////////////////////////////////////////////////////
 
     public <V extends TextView> void text(V v, Function<M, ? extends CharSequence> attrGetter) {
-        bind(v, "elm-text", attrGetter, TextView::setText);
+        bind(v, "elm-text", attrGetter, (view, attr) -> {
+            view.setText(attr);
+            if (view instanceof EditText) {
+                ((EditText) view).setSelection(view.getText().length());
+            }
+        });
     }
 
     public <V extends TextView> void textSize(V v, Function<M, Float> attrGetter) {
@@ -128,7 +135,7 @@ public class Bind<M> implements IBinder<M> {
     // Layout
     ///////////////////////////////////////////////////////////////////////////
 
-    public <V extends View> void paddingLeft(V view, Function<M, ? extends Integer> attrGetter) {
+    public <V extends View> void paddingLeft(V view, Function<M, Integer> attrGetter) {
         bind(view, "elm-paddingLeft", attrGetter, (v, o) -> {
             final int top = view.getPaddingTop();
             final int right = view.getPaddingRight();
@@ -138,7 +145,7 @@ public class Bind<M> implements IBinder<M> {
         });
     }
 
-    public <V extends View> void paddingTop(V view, Function<M, ? extends Integer> attrGetter) {
+    public <V extends View> void paddingTop(V view, Function<M, Integer> attrGetter) {
         bind(view, "elm-paddingTop", attrGetter, (v, o) -> {
             final int left = view.getPaddingLeft();
             final int right = view.getPaddingRight();
@@ -148,7 +155,7 @@ public class Bind<M> implements IBinder<M> {
         });
     }
 
-    public <V extends View> void paddingRight(V view, Function<M, ? extends Integer> attrGetter) {
+    public <V extends View> void paddingRight(V view, Function<M, Integer> attrGetter) {
         bind(view, "elm-paddingRight", attrGetter, (v, o) -> {
             final int left = view.getPaddingLeft();
             final int top = view.getPaddingTop();
@@ -158,7 +165,7 @@ public class Bind<M> implements IBinder<M> {
         });
     }
 
-    public <V extends View> void paddingBottom(V view, Function<M, ? extends Integer> attrGetter) {
+    public <V extends View> void paddingBottom(V view, Function<M, Integer> attrGetter) {
         bind(view, "elm-paddingBottom", attrGetter, (v, o) -> {
             final int left = view.getPaddingLeft();
             final int top = view.getPaddingTop();
@@ -168,7 +175,7 @@ public class Bind<M> implements IBinder<M> {
         });
     }
 
-    public <V extends View> void paddingH(V view, Function<M, ? extends Integer> attrGetter) {
+    public <V extends View> void paddingH(V view, Function<M, Integer> attrGetter) {
         bind(view, "elm-paddingH", attrGetter, (v, o) -> {
             final int top = view.getPaddingTop();
             final int bottom = view.getPaddingBottom();
@@ -177,12 +184,20 @@ public class Bind<M> implements IBinder<M> {
         });
     }
 
-    public <V extends View> void paddingV(V view, Function<M, ? extends Integer> attrGetter) {
+    public <V extends View> void paddingV(V view, Function<M, Integer> attrGetter) {
         bind(view, "elm-paddingV", attrGetter, (v, o) -> {
             final int left = view.getPaddingLeft();
             final int right = view.getPaddingRight();
 
             view.setPadding(left, o, right, o);
         });
+    }
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    ///////////////////////////////////////////////////////////////////////////
+
+    public <V extends CompoundButton> void checked(V view, Function<M, Boolean> attrGetter) {
+        bind(view, "checked", attrGetter, CompoundButton::setChecked);
     }
 }

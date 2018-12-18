@@ -1,6 +1,7 @@
 package elm.wx.com.core.reactive.mutable;
 
 import android.content.Context;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,17 +22,19 @@ public abstract class ReactiveView<M> implements Elm.View<M> {
 
     private boolean hasCreateView = false;
 
+    private View realView;
+
     @Override
     public final void render(Context context, M model, Elm<M> elm) {
         if (!hasCreateView) {
-            onCreateView(context, elm);
+            realView = onCreateView(context, elm);
             hasCreateView = true;
         }
 
         refresh(model);
     }
 
-    protected abstract void onCreateView(Context context, Elm<M> elm);
+    protected abstract View onCreateView(Context context, Elm<M> elm);
 
     static class Bind<M> {
         final Object realView;
@@ -97,5 +100,10 @@ public abstract class ReactiveView<M> implements Elm.View<M> {
                 attrSetter.accept(realView, newAttrValue);
             }
         }
+    }
+
+    @Override
+    public View getRealView() {
+        return realView;
     }
 }

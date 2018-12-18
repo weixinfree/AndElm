@@ -1,5 +1,7 @@
 package elm.wx.com.andelm;
 
+import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +25,11 @@ public class DemoActivity extends AppCompatActivity {
             finish();
             return;
         }
+
+        if (demoImpl instanceof LifecycleObserver) {
+            getLifecycle().addObserver(((LifecycleObserver) demoImpl));
+        }
+
         setContentView(demoImpl.main(this));
     }
 

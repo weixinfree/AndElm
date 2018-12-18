@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -57,6 +56,8 @@ public class ReverseText implements Demo {
 
             final Bind<CharSequence> $ = new Bind<>(bind);
             $.text(reverse, ReverseText::reverseStr);
+
+            return root;
         };
     }
 
@@ -66,7 +67,6 @@ public class ReverseText implements Demo {
 
             @Override
             public void afterTextChanged(Editable s) {
-                Log.d("ReverseText", "afterTextChanged() called with: s = [" + s + "]");
                 _elm.send(REVERSE, s);
             }
         };

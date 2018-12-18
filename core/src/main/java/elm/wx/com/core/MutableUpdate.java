@@ -1,6 +1,4 @@
-package elm.wx.com.core.reactive.mutable;
-
-import elm.wx.com.core.Elm;
+package elm.wx.com.core;
 
 /**
  * Created by wangwei on 2018/12/13.
@@ -13,5 +11,5 @@ public interface MutableUpdate<M> extends Elm.Update<M>  {
         return old;
     }
 
-    void mutableUpdate(String action, Object param, M model);
+    void mutableUpdate(String action, Object payload, M model);
 }

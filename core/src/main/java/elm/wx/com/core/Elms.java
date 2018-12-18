@@ -1,6 +1,7 @@
 package elm.wx.com.core;
 
 import android.content.Context;
+import android.view.View;
 
 import elm.wx.com.core.reactive.mutable.ReactiveView;
 import elm.wx.com.core.reactive.mutable.ReactiveViewFactory;
@@ -14,18 +15,18 @@ public class Elms {
         //no instance
     }
 
-    public static <M> void construct(Context context, Elm.Update<M> update, M initModel, ReactiveViewFactory<M> factory) {
-        construct(context, update, initModel, new ReactiveView<M>() {
+    public static <M> Elm<M> construct(Context context, Elm.Update<M> update, M initModel, ReactiveViewFactory<M> factory) {
+        return construct(context, update, initModel, new ReactiveView<M>() {
             @Override
-            protected void onCreateView(Context context, Elm<M> elm) {
-                factory.create(context, elm, this::bind);
+            protected View onCreateView(Context context, Elm<M> elm) {
+                return factory.create(context, elm, this::bind);
             }
         });
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static <M> void construct(Context context, Elm.Update<M> update, M initModel, Elm.View<M> view) {
-        new Elm<>(context, update, initModel, view);
+    public static <M> Elm<M> construct(Context context, Elm.Update<M> update, M initModel, Elm.View<M> view) {
+        return new Elm<>(context, update, initModel, view);
     }
 
 

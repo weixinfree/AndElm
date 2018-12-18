@@ -25,6 +25,8 @@ public class Elm<M> {
 
     public interface View<M> {
         void render(Context context, M model, Elm<M> elm);
+
+        android.view.View getRealView();
     }
 
     public interface Update<M> {
@@ -37,9 +39,9 @@ public class Elm<M> {
 
     private final Tick tick;
 
-    private final Context context;
-    private final View<M> view;
-    private final Update<M> update;
+    public final Context context;
+    public final View<M> view;
+    public final Update<M> update;
     private volatile M oldModel;
 
     private final List<Plugin<M>> plugins = new LinkedList<>();
