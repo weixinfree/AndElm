@@ -119,7 +119,7 @@ public class Item implements ElmAdapter.IHolder<TodoModel> {
         } else if (span < TimeUnit.HOURS.toMillis(1)) {
             return Periods.formatPeriod(span, "m分钟前");
         } else if (span < TimeUnit.DAYS.toMillis(1)) {
-            return Periods.formatPeriod(span, "h小时m分钟前");
+            return Periods.formatPeriod(span, "h小时前");
         } else if (span < TimeUnit.DAYS.toMillis(30)) {
             return Periods.formatPeriod(span, "d天前");
         } else {

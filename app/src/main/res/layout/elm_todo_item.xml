@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:elevation="6dp"
     android:gravity="center_vertical"
+    android:padding="4dp"
     android:orientation="horizontal"
     tools:context=".DemoActivity">
 
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content" />
 
     <Space
-        android:layout_width="16dp"
+        android:layout_width="12dp"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -27,7 +27,7 @@
         android:textSize="20sp" />
 
     <Space
-        android:layout_width="16dp"
+        android:layout_width="12dp"
         android:layout_height="wrap_content" />
 
 
