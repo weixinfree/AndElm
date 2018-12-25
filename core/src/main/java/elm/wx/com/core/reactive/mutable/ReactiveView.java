@@ -9,7 +9,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
-import elm.wx.com.core.Elm;
+import elm.wx.core.Elm;
 import xin.banana.base.BiConsumer;
 import xin.banana.base.Function;
 import xin.banana.base.Objects;

@@ -1,4 +1,4 @@
-package elm.wx.com.core;
+package elm.wx.core;
 
 /**
  * Created by wangwei on 2018/12/13.

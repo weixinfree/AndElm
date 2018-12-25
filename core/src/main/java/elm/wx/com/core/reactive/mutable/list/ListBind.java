@@ -4,7 +4,6 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import elm.wx.com.core.Elm;
 import elm.wx.com.core.reactive.mutable.IBinder;
 import xin.banana.base.BiConsumer;
 import xin.banana.base.Function;

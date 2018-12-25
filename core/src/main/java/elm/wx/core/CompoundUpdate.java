@@ -1,4 +1,4 @@
-package elm.wx.com.core;
+package elm.wx.core;
 
 import android.util.ArrayMap;
 

@@ -19,9 +19,9 @@ import java.util.concurrent.TimeUnit;
 
 import elm.wx.com.andelm.R;
 import elm.wx.com.andelm.util.SimpleTextWatcher;
-import elm.wx.com.core.CompoundUpdate;
-import elm.wx.com.core.Elm;
-import elm.wx.com.core.Elms;
+import elm.wx.core.CompoundUpdate;
+import elm.wx.core.Elm;
+import elm.wx.com.core.reactive.mutable.Elms;
 import elm.wx.com.core.reactive.mutable.Bind;
 import elm.wx.com.core.reactive.mutable.ReactiveViewFactory;
 import elm.wx.com.core.reactive.mutable.list.ElmAdapter;

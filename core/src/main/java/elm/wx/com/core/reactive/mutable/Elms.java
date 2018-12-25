@@ -1,10 +1,9 @@
-package elm.wx.com.core;
+package elm.wx.com.core.reactive.mutable;
 
 import android.content.Context;
 import android.view.View;
 
-import elm.wx.com.core.reactive.mutable.ReactiveView;
-import elm.wx.com.core.reactive.mutable.ReactiveViewFactory;
+import elm.wx.core.Elm;
 
 /**
  * Created by wangwei on 2018/12/13.
